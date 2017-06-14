@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "VLCViewController.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+}
+
+- (NSString *)getDataPath
+{
+    return [[NSBundle mainBundle] pathForResource:@"贝尔科实验.mkv" ofType:nil];
+}
+
+// 这只是随便找一个视频测试，各位亲们可以自行找网络资源测
+- (IBAction)beginBtn:(id)sender {
+    VLCViewController *vlcVc = [[VLCViewController  alloc] init];
+    vlcVc.playName = @"贝尔科实验";
+    vlcVc.playPath = [self getDataPath];
+    
+    [self presentViewController:vlcVc animated:YES completion:^{
+        
+    }];
 }
 
 
